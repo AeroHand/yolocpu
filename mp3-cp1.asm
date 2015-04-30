@@ -1,0 +1,117 @@
+ORIGIN 4x0000
+    ;; Refer to the LC-3b manual for the operation of each
+    ;; instruction.  (LDR, STR, ADD, AND, NOT, BR)
+SEGMENT  CodeSegment:
+
+START:
+    	ADD R0, R0, 1
+    	NOP
+	NOP
+    	NOP
+	NOP
+	AND R1, R0, R0
+    	NOP
+	NOP
+    	NOP
+	NOP
+	ADD R2, R1, R0
+    	NOP
+	NOP
+    	NOP
+	NOP
+	NOT R3, R0
+    	NOP
+	NOP
+    	NOP
+	NOP
+	BRn GOOD
+	NOP
+	NOP
+	NOP
+	NOP
+
+ONE:    DATA2 4x0001
+TWO:    DATA2 4x0002
+EIGHT:  DATA2 4x0008
+RESULT: DATA2 4x0000
+
+
+GOOD:	ADD R7, R7, 2
+	NOP
+	NOP
+	NOP
+	NOP
+	NOT R7, R7
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, ONE
+	NOP
+	NOP
+	NOP
+	NOP
+	NOT R7, R7
+	NOP
+	NOP
+	NOP
+	NOP
+	STR R7, R0, ONE
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, TWO
+	NOP
+	NOP
+	NOP
+	NOP
+	NOT R7, R7
+	NOP
+	NOP
+	NOP
+	NOP
+	STR R7, R0, TWO
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, EIGHT
+	NOP
+	NOP
+	NOP
+	NOP
+	NOT R7, R7
+	NOP
+	NOP
+	NOP
+	NOP
+	STR R7, R0, EIGHT
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, ONE
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, TWO
+	NOP
+	NOP
+	NOP
+	NOP
+	LDR R7, R0, EIGHT
+	NOP
+	NOP
+	NOP
+	NOP
+
+HALT:  	BRnzp HALT 
+	NOP
+	NOP
+	NOP
+	NOP
+
+ 
+
